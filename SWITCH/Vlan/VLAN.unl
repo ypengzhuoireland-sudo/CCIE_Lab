@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="VLAN" version="1" scripttimeout="300" lock="0">
+  <topology>
+    <nodes>
+      <node id="1" name="SW1" type="iol" template="iol" image="i86bi-linux-L2-adventerprisek9-M-15.1-20140814.bin" ethernet="1" nvram="256" ram="512" serial="0" console="" delay="0" icon="Switch L3.png" config="0" left="738" top="393">
+        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="2"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="3"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="5"/>
+      </node>
+      <node id="2" name="SW2" type="iol" template="iol" image="i86bi-linux-L2-adventerprisek9-M-15.1-20140814.bin" ethernet="1" nvram="256" ram="512" serial="0" console="" delay="0" icon="Switch L3.png" config="0" left="1047" top="393">
+        <interface id="0" name="e0/0" type="ethernet" network_id="3"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="4"/>
+      </node>
+      <node id="3" name="R3" type="iol" template="iol" image="i86bi-linux-L3-adventerprisek9-M-15.4-2T.bin" ethernet="1" nvram="256" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="738" top="567">
+        <interface id="0" name="e0/0" type="ethernet" network_id="5"/>
+      </node>
+      <node id="4" name="VPC4" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="588" top="225">
+        <interface id="0" name="eth0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="5" name="VPC5" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="552" top="390">
+        <interface id="0" name="eth0" type="ethernet" network_id="2"/>
+      </node>
+      <node id="6" name="VPC6" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="1044" top="210">
+        <interface id="0" name="eth0" type="ethernet" network_id="4"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-VPC4iface_0" left="366" top="115" visibility="0"/>
+      <network id="2" type="bridge" name="Net-VPC5iface_0" left="588" top="106" visibility="0"/>
+      <network id="3" type="bridge" name="Net-SW1iface_32" left="522" top="316" visibility="0"/>
+      <network id="4" type="bridge" name="Net-VPC6iface_0" left="834" top="118" visibility="0"/>
+      <network id="5" type="bridge" name="Net-R3iface_0" left="639" top="484" visibility="0"/>
+    </networks>
+  </topology>
+</lab>
